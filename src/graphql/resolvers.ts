@@ -133,7 +133,7 @@ export const resolvers = {
         // If password does not match, throw an error.
         if (!isMatch) {
           throw new GraphQLError('incorrect password', {
-            extensions: { code: 'INCORRECT_PASSWORD' },
+            extensions: { code: 'INCORRECT_PASSWORD'},
           });
         }
 
