@@ -12,9 +12,6 @@
     "lint:fix": "eslint src --ext .ts,.js --fix",
     "format": "prettier --write \"src/**/*.{ts,js,json,md,graphql}\""
   },
-  "engines": {
-    "node": ">=20 <23"
-  },
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
