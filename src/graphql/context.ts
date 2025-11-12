@@ -49,9 +49,7 @@ export const context = async (initialContext: YogaInitialContext): Promise<Conte
         // Only access decoded.id if we KNOW it exists
         const findUser = await User.findById(decoded.id);
 
-        if (!findUser) throw new GraphQLError('No user found');
-
-        user = findUser;
+        if (findUser) user = findUser;
       }
     } catch (err: any) {
       console.error('TOKEN_VERIFICATION_ERROR:', err.message);
