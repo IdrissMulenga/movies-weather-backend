@@ -33,6 +33,9 @@ export const typeDefs = `
         user: User
         token: String
     }
+    type UserPayload {
+        user: User
+    }
     
 #SEARCH MOVIE TYPE
     type Search {
@@ -67,6 +70,7 @@ export const typeDefs = `
         login(input: LoginInput!): AuthPayload!
         addFavorite(imdbID: String!): Favorite!
         removeFavorite(imdbID: String!): Boolean!
+        editUser(input: EditUserInput!): UserPayload
     }
 
 #INPUTS
@@ -80,5 +84,9 @@ export const typeDefs = `
     input LoginInput {
         email: String!
         password: String!
+    }
+    input EditUserInput {
+        name: String
+        city: String
     }
 `;

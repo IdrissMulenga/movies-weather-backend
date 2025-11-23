@@ -146,6 +146,18 @@ export const resolvers = {
         throw new GraphQLError(`'unexpected error' , ${error}`);
       }
     },
+    editUser: async (_: unknown, { input }: InputType, context: Context) => {
+      authCheck(context)
+      const { name, city } = input
+
+      const updateUser = await User.findOneAndUpdate(
+        { _id: context.user?.id },
+        { $set: { name, city } },
+        { new: true }
+      );
+
+      return { user: updateUser };
+    },
     addFavorite: async (_: unknown, { imdbID }: { imdbID: string }, context: Context) => {
       authCheck(context);
       const movie = await upsertMovie(imdbID);
