@@ -12,7 +12,7 @@ export interface InputType {
   };
 }
 
-export const generateToken = async (userId: string) => {
+export const generateToken = (userId: string) => {
   try {
     return jwt.sign({ id: userId }, configEnv.JWT_SECRET as string, { expiresIn: '7d' });
   } catch (error: any) {
